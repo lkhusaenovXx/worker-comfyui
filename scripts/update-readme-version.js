@@ -18,8 +18,8 @@ const version = packageJson.version;
 
 const readme = fs.readFileSync(readmePath, "utf8");
 const updated = readme.replace(
-  /runpod\/worker-comfyui:\d+\.\d+\.\d+/g,
-  `runpod/worker-comfyui:${version}`
+	/runpod\/worker-comfyui:\d+\.\d+\.\d+/g,
+	`runpod/worker-comfyui:${version}`
 );
 
 fs.writeFileSync(readmePath, updated, "utf8");

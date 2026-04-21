@@ -89,6 +89,14 @@ ENV PIP_NO_INPUT=1
 COPY scripts/comfy-manager-set-mode.sh /usr/local/bin/comfy-manager-set-mode
 RUN chmod +x /usr/local/bin/comfy-manager-set-mode
 
+# Install custom nodes required by our workflows
+# rgthree-comfy — provides "Power Lora Loader (rgthree)" used in f2k/f2d workflows
+RUN git clone --depth 1 https://github.com/rgthree/rgthree-comfy.git \
+      /comfyui/custom_nodes/rgthree-comfy \
+    && if [ -f /comfyui/custom_nodes/rgthree-comfy/requirements.txt ]; then \
+         uv pip install -r /comfyui/custom_nodes/rgthree-comfy/requirements.txt; \
+       fi
+
 # Set the default command to run when starting the container
 CMD ["/start.sh"]
 

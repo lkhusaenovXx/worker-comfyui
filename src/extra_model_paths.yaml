@@ -1,12 +1,20 @@
 runpod_worker_comfy:
-  base_path: /runpod-volume
+  base_path: /runpod-volume/runpod-slim/ComfyUI
   checkpoints: models/checkpoints/
   clip: models/clip/
   clip_vision: models/clip_vision/
   configs: models/configs/
   controlnet: models/controlnet/
+  diffusers: models/diffusers/
+  diffusion_models: models/diffusion_models/
   embeddings: models/embeddings/
+  gligen: models/gligen/
+  hypernetworks: models/hypernetworks/
   loras: models/loras/
+  photomaker: models/photomaker/
+  style_models: models/style_models/
+  text_encoders: models/text_encoders/
+  unet: models/unet/
   upscale_models: models/upscale_models/
   vae: models/vae/
-  unet: models/unet/
+  vae_approx: models/vae_approx/

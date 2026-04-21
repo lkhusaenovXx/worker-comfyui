@@ -66,8 +66,13 @@ def run_network_volume_diagnostics():
         return
 
     # Check directory structure
+    # Path must stay in sync with base_path in src/extra_model_paths.yaml.
+    # Override via NETWORK_VOLUME_MODELS_DIR if your layout differs.
     print("\n[3] Checking directory structure...")
-    models_dir = os.path.join(runpod_volume, "models")
+    models_dir = os.environ.get(
+        "NETWORK_VOLUME_MODELS_DIR",
+        os.path.join(runpod_volume, "runpod-slim", "ComfyUI", "models"),
+    )
     if os.path.isdir(models_dir):
         print(f"    ✓ FOUND: {models_dir}")
     else:
